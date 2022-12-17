@@ -77,17 +77,17 @@ egress {
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.ansible.id
   allocation_id = "eipalloc-02e7a0ec93180e54c"
-}
+}*/
 
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.jenkins.id
-  allocation_id = ""
+  allocation_id = "eipalloc-0910daff6a59820f1"
 }
 /*
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.k8s-master.id
   allocation_id = ""
-}
+}*/
 
 
 
