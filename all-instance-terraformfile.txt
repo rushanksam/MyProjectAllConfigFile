@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "us-east-2"
-  access_key = "AKIAWRRSQMJKFPKYJJFQ"
-  secret_key = "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"
+  access_key = "AKIAQRRIZWW37Y2VY74D"
+  secret_key = "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"
 }
 
 resource "aws_vpc" "prod-vpc" {
@@ -73,30 +73,30 @@ egress {
  }
 }
 
-
+/*
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.ansible.id
   allocation_id = "eipalloc-02e7a0ec93180e54c"
 }
-/*
+
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.jenkins.id
   allocation_id = ""
 }
-
+/*
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.k8s-master.id
   allocation_id = ""
 }
 
-*/
+
 
 resource "aws_instance" "jenkins" {
-  ami           = "ami-0568773882d492fc8"
+  ami           = "ami-0beaa649c482330f7"
   instance_type = "t2.medium"
   #availability_zone ="us-east-2b"
   associate_public_ip_address= true
-  key_name = "winkey" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   private_ip = "10.0.1.51"
   root_block_device   {
@@ -118,11 +118,11 @@ resource "aws_instance" "jenkins" {
 
 /*
 resource "aws_instance" "stagging" {
-  ami           = "ami-0568773882d492fc8"
+  ami           = "ami-0beaa649c482330f7"
   instance_type = "t2.xlarge"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
-  key_name = "winkey" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   private_ip = "10.0.1.55"
   root_block_device   {
@@ -141,11 +141,11 @@ resource "aws_instance" "stagging" {
 } */
 
 resource "aws_instance" "ansible" {
-  ami           = "ami-0568773882d492fc8"
+  ami           = "ami-0beaa649c482330f7"
   instance_type = "t2.large"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
-  key_name = "winkey" 
+  key_name = "susha" 
   private_ip = "10.0.1.50"
   subnet_id = aws_subnet.subnet-1.id 
   root_block_device   {
@@ -163,12 +163,12 @@ resource "aws_instance" "ansible" {
 }
 
 resource "aws_instance" "k8s-master" {
-  ami           = "ami-0568773882d492fc8"
+  ami           = "ami-0beaa649c482330f7"
   instance_type = "t2.medium"
   associate_public_ip_address= true
   private_ip = "10.0.1.52"
   #availability_zone ="us-east-2b"
-  key_name = "winkey" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   root_block_device   {
       volume_type = "gp2"
@@ -185,12 +185,12 @@ resource "aws_instance" "k8s-master" {
 }
 
 resource "aws_instance" "workernode1" {
-  ami           = "ami-0568773882d492fc8"
+  ami           = "ami-0beaa649c482330f7"
   instance_type = "t2.micro"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
   private_ip = "10.0.1.53"
-  key_name = "winkey" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   root_block_device   {
       volume_type = "gp2"
@@ -207,12 +207,12 @@ resource "aws_instance" "workernode1" {
 }
 
 resource "aws_instance" "workernode2" {
-  ami           = "ami-0568773882d492fc8"
+  ami           = "ami-0beaa649c482330f7"
   instance_type = "t2.micro"
   associate_public_ip_address= true
   #availability_zone ="us-east-2b"
   private_ip = "10.0.1.54"
-  key_name = "winkey" 
+  key_name = "susha" 
   subnet_id = aws_subnet.subnet-1.id 
   root_block_device   {
       volume_type = "gp2"
